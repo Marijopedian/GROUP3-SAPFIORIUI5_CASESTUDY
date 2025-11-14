@@ -1,0 +1,5 @@
+[
+    { "PlantID": 1, "PlantDescription": "Manila Main Plant" },
+    { "PlantID": 2, "PlantDescription": "Batangas Plant" },
+    { "PlantID": 3, "PlantDescription": "Baguio Plant" }
+]

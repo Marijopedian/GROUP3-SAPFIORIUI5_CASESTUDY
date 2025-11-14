@@ -1,0 +1,6 @@
+[
+    { "StatusCode": "CR", "StatusDescription": "Created" },
+    { "StatusCode": "RL", "StatusDescription": "Released" },
+    { "StatusCode": "PC", "StatusDescription": "Partially Completed" },
+    { "StatusCode": "DL", "StatusDescription": "Delivered" }
+]

@@ -1,0 +1,48 @@
+[
+    {
+        "ProductID": 1,
+        "OrderID": 1001,
+        "DeliveringPlant": 1,
+        "ProductDescription": "Laptop ASUS ROG",
+        "Quantity": 5,
+        "PricePerQuantity": 85000,
+        "TotalPrice": 425000
+    },
+    {
+        "ProductID": 2,
+        "OrderID": 1001,
+        "DeliveringPlant": 1,
+        "ProductDescription": "Gaming Mouse",
+        "Quantity": 10,
+        "PricePerQuantity": 2500,
+        "TotalPrice": 25000
+    },
+    {
+        "ProductID": 3,
+        "OrderID": 1002,
+        "DeliveringPlant": 2,
+        "ProductDescription": "Office Chair",
+        "Quantity": 3,
+        "PricePerQuantity": 12000,
+        "TotalPrice": 36000
+    },
+    {
+        "ProductID": 4,
+        "OrderID": 1003,
+        "DeliveringPlant": 1,
+        "ProductDescription": "Desk Lamp",
+        "Quantity": 6,
+        "PricePerQuantity": 1500,
+        "TotalPrice": 9000
+    },
+    {
+        "ProductID": 5,
+        "OrderID": 1004,
+        "DeliveringPlant": 3,
+        "ProductDescription": "Standing Desk",
+        "Quantity": 2,
+        "PricePerQuantity": 28000,
+        "TotalPrice": 56000
+    }
+]
+ 

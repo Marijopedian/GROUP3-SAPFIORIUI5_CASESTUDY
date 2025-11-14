@@ -1,0 +1,5 @@
+[
+    { "PlantID": 1, "PlantDescription": "Laguna Receiving Plant" },
+    { "PlantID": 2, "PlantDescription": "Cebu Receiving Plant" },
+    { "PlantID": 3, "PlantDescription": "Davao Receiving Plant" }
+]
