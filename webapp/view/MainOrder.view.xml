@@ -1,6 +1,67 @@
-<mvc:View controllerName="group3casestudy.controller.MainOrder"
+<mvc:View
+    controllerName="group3casestudy.controller.MainOrder"
     xmlns:mvc="sap.ui.core.mvc"
-    xmlns="sap.m">
-    <Page id="page" title="{i18n>title}">
-    </Page>
+    xmlns="sap.m"
+    xmlns:core="sap.ui.core">
+
+    <App id="App">
+        <Page id="mainPage" title="Order Management">
+            <content >
+                <VBox  id="_IDGenVBox">
+
+                    <!-- Filter Bar -->
+                    <HBox class="sapUiMediumMarginBottom" id="_IDGenHBox1">
+                        <Input id="orderInput" placeholder="Order Number"/>
+                        <DatePicker id="datePicker"/>
+                        
+                        <MultiComboBox
+                            id="statusFilter"
+                            items="{ path: '/Statuses' }">
+                            <core:Item id="_IDGenItem" key="{StatusCode}" text="{StatusDescription}"/>
+                        </MultiComboBox>
+
+                        <Button id="_IDGenButton" text="Go" press="onFilter"/>
+                        <Button id="_IDGenButton1" text="Clear" press="onClear"/>
+
+                    </HBox>
+                    
+                     <Toolbar id="_IDGenToolbar1">
+                    <Title id="ordersTitle" text="Orders (0)" level="H3"/>
+                    <ToolbarSpacer id="_IDGenToolbarSpacer"/>
+                    <!-- icon-only buttons on the right -->
+                    <Button id="btnAdd" icon="sap-icon://add" type="Transparent" press="onCreate" tooltip="Create"/>
+                    <Button id="btnDelete" icon="sap-icon://delete" type="Transparent" press="onDelete" tooltip="Delete"/>
+                </Toolbar>
+                    <!-- Orders Table -->
+                    <Table id="orderTable"
+                           items="{/Orders}"
+                           mode="MultiSelect">
+
+                        <columns>
+                            <Column id="_IDGenColumn"><Text id="_IDGenText" text="Order Number"/></Column>
+                            <Column id="_IDGenColumn1"><Text id="_IDGenText1" text="Creation Date"/></Column>
+                            <Column id="_IDGenColumn2"><Text id="_IDGenText2" text="Receiving Plant"/></Column>
+                            <Column id="_IDGenColumn3"><Text id="_IDGenText3" text="Delivering Plant"/></Column>
+                            <Column id="_IDGenColumn4"><Text id="_IDGenText4" text="Status"/></Column>
+
+                        </columns>
+
+                        <items>
+                            <ColumnListItem id="_IDGenColumnListItem">
+                                <cells>
+                                    <Text id="_IDGenText5" text="{OrderID}"/>
+                                    <Text id="_IDGenText6" text="{CreationDate}"/>
+                                   <Text id="_IDGenText7" text="{= ${ReceivingPlant} + ' - ' + ${ReceivingPlantDesc} }" />
+                                    <Text id="_IDGenText8" text="{=${DeliveringPlant} + ' - ' + ${DeliveringPlantDesc}}"/>
+                                    <Text id="_IDGenText9" text="{StatusDesc}"/>
+                                </cells>
+                            </ColumnListItem>
+                        </items>
+
+                    </Table>
+
+                </VBox>
+            </content>
+        </Page>
+    </App>
 </mvc:View>
