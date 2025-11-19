@@ -95,12 +95,21 @@
           "target": [
             "TargetMainOrder"
           ]
+        },
+        {
+          "name": "RouteDetailOrder",
+          "pattern": "DetailOrder/{OrderID}",
+          "target": ["TargetDetailOrder"]
         }
       ],
       "targets": {
         "TargetMainOrder": {
           "id": "MainOrder",
           "name": "MainOrder"
+        },
+        "TargetDetailOrder": {
+          "id": "DetailOrder",
+          "name": "DetailOrder"
         }
       }
     },

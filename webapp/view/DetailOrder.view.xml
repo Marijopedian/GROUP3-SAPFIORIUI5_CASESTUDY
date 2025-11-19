@@ -1,0 +1,75 @@
+<mvc:View
+    controllerName="group3casestudy.controller.DetailOrder"
+    xmlns:mvc="sap.ui.core.mvc"
+    xmlns="sap.m"
+    xmlns:form="sap.ui.layout.form">
+
+    <Page id="pageDetailOrder" title="Detail">
+        <content>
+            <VBox id="vboxOrderDetails" class="sapUiResponsiveMargin">
+                <Panel id="panelOrderDetails" headerText="Order Details" expandable="false">
+                    <form:SimpleForm 
+                        id="simpleFormOrderDetails"
+                        editable="false"
+                        layout="ResponsiveGridLayout"
+                        adjustLabelSpan="false"
+                        class="sapUiNoMargin sapUiNoContentPadding" >
+
+                        <Label id="idLabelOrderID" text="Order Number"></Label>
+                        <Text id="idTextOrderID" text="{OrderDetail>/OrderID}"/>
+                        
+                        <Label id="idLabelCreationDate" text="Created On"></Label>
+                        <Text id="idTextCreationDate" text="{path: 'OrderDetail>/CreationDate', type: 'sap.ui.model.type.Date', formatOptions: {pattern: 'dd MMM yyyy'}}"/>
+
+                        <Label id="idLabelReceivingPlant" text="Receiving Plant"></Label>
+                        <Text id="idTextReceivingPlant" text="{OrderDetail>/ReceivingPlantDesc}"/>
+
+                        <Label id="idLabelDeliveringPlant" text="Delivering Plant"></Label>
+                        <Text id="idTextDeliveringPlant" text="{OrderDetail>/DeliveringPlantDesc}"/>
+
+                        <Label id="idLabelStatus" text="Status"></Label>
+                        <Text id="idTextStatus" text="{OrderDetail>/StatusDesc}"/>
+
+                    </form:SimpleForm>
+                </Panel>
+
+                <Panel id="panelProducts" headerText="{= 'Products (' + ${OrderProducts>/length} + ')' }" expandable="false" class="sapUiSmallMarginTop">
+                    <Table id="productTable" items="{OrderProducts>/}">
+                        <columns>
+                            <Column id="colProduct">
+                                <Text id="txtColProduct" text="Product"/>
+                                </Column>
+                            <Column id="colQuantity">
+                                <Text id="txtColQuantity" text="Quantity"/>
+                            </Column>
+                            <Column id="colPrice">
+                                <Text id="txtColPrice" text="Price"/>
+                            </Column>
+                            <Column id="colTotal">
+                                <Text id="txtColTotal" text="Total"/>
+                            </Column>
+                        </columns>
+                        <items>
+                            <ColumnListItem id="cliProductItem">
+                                <cells>
+                                    <Text id="txtProductDescription" text="{OrderProducts>ProductDescription}"/>
+                                    <Text id="txtQuantity" text="{OrderProducts>Quantity}"/>
+                                    <Text id="txtPricePerQuantity" text="{OrderProducts>PricePerQuantity}"/>
+                                    <Text id="txtTotal" text="{= ${OrderProducts>Quantity} * ${OrderProducts>PricePerQuantity} }"/>
+                                </cells>
+                            </ColumnListItem>
+                        </items>
+                    </Table>
+                </Panel>
+            </VBox>
+        </content>
+
+        <footer>
+            <OverflowToolbar id="idOFTFooterDetail">
+                <ToolbarSpacer id="idToolbarSpacerFooter"/>
+                <Button id="idBtnEdit" text="Edit"/>
+                <Button id="idBtnCancel" text="Cancel" press="onPressBack"/>
+            </OverflowToolbar>
+        </footer>
+    </Page>
+</mvc:View>

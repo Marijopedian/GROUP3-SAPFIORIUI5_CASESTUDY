@@ -169,6 +169,15 @@ sap.ui.define([
                     // 5. User clicked "No" → do nothing
                 }.bind(this)
             });
+        },
+
+        onRowPress: function (oEvent) {
+            let oRouter = this.getOwnerComponent().getRouter();
+            let oItem = oEvent.getSource();
+            let oContext = oItem.getBindingContext();
+            let sOrderID = oContext.getProperty("OrderID");
+
+            oRouter.navTo("RouteDetailOrder", { OrderID: sOrderID });
         }
 
     });
