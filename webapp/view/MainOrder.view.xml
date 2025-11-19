@@ -51,8 +51,8 @@
                                 <cells>
                                     <Text id="_IDGenText5" text="{OrderID}"/>
                                     <Text id="_IDGenText6" text="{CreationDate}"/>
-                                   <Text id="_IDGenText7" text="{= ${ReceivingPlant} + ' - ' + ${ReceivingPlantDesc} }" />
-                                    <Text id="_IDGenText8" text="{=${DeliveringPlant} + ' - ' + ${DeliveringPlantDesc}}"/>
+                                   <Text id="_IDGenText7" text="{= ${ReceivingPlantID} + ' - ' + ${ReceivingPlantDesc} }" />
+                                    <Text id="_IDGenText8" text="{=${DeliveringPlantID} + ' - ' + ${DeliveringPlantDesc}}"/>
                                     <Text id="_IDGenText9" text="{StatusDesc}"/>
                                 </cells>
                             </ColumnListItem>

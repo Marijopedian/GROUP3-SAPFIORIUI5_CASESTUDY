@@ -1,163 +1,203 @@
 [
-  {
-    "OrderID": 1001,
-    "CreationDate": "/Date(1730000000000)/",
-    "ReceivingPlant": 1,
-    "ReceivingPlantDesc": "Manila Main Plant",
-    "DeliveringPlant": 1,
-    "DeliveringPlantDesc": "Manila Main Plant",
-    "StatusCode": "CR",
-    "StatusDesc": "Created"
-  },
-  {
-    "OrderID": 1002,
-    "CreationDate": "/Date(1730500000000)/",
-    "ReceivingPlant": 2,
-    "ReceivingPlantDesc": "Batangas Plant",
-    "DeliveringPlant": 2,
-    "DeliveringPlantDesc": "Batangas Plant",
-    "StatusCode": "RL",
-    "StatusDesc": "Released"
-  },
-  {
-    "OrderID": 1003,
-    "CreationDate": "/Date(1731000000000)/",
-    "ReceivingPlant": 1,
-    "ReceivingPlantDesc": "Manila Main Plant",
-    "DeliveringPlant": 1,
-    "DeliveringPlantDesc": "Manila Main Plant",
-    "StatusCode": "PC",
-    "StatusDesc": "Partially Confirmed"
-  },
-  {
-    "OrderID": 1004,
-    "CreationDate": "/Date(1731500000000)/",
-    "ReceivingPlant": 3,
-    "ReceivingPlantDesc": "Baguio Plant",
-    "DeliveringPlant": 3,
-    "DeliveringPlantDesc": "Baguio Plant",
-    "StatusCode": "DL",
-    "StatusDesc": "Delivered"
-  },
+    {
+        "OrderID": 1001,
+        "CreationDate": "/Date(1730000000000)/",
+        "ReceivingPlantID": 101,
+        "ReceivingPlantDesc": "Plant A",
+        "DeliveringPlantID": 201,
+        "DeliveringPlantDesc": "Plant X",
+        "StatusCode": "CR",
+        "StatusDesc": "Created"
+    },
+    {
+        "OrderID": 1002,
+        "CreationDate": "/Date(1730000000000)/",
+        "ReceivingPlantID": 102,
+        "ReceivingPlantDesc": "Plant B",
+        "DeliveringPlantID": 202,
+        "DeliveringPlantDesc": "Plant Y",
+        "StatusCode": "RL",
+        "StatusDesc": "Released"
+    },
+    {
+        "OrderID": 1003,
+        "CreationDate": "/Date(1730000000000)/",
+        "ReceivingPlantID": 103,
+        "ReceivingPlantDesc": "Plant C",
+        "DeliveringPlantID": 203,
+        "DeliveringPlantDesc": "Plant Z",
+        "StatusCode": "PC",
+        "StatusDesc": "Partially Completed"
+    },
+    {
+        "OrderID": 1004,
+        "CreationDate": "/Date(1730500000000)/",
+        "ReceivingPlantID": 104,
+        "ReceivingPlantDesc": "Plant D",
+        "DeliveringPlantID": 204,
+        "DeliveringPlantDesc": "Plant W",
+        "StatusCode": "DL",
+        "StatusDesc": "Delivered"
+    },
+    {
+        "OrderID": 1005,
+        "CreationDate": "/Date(1730600000000)/",
+        "ReceivingPlantID": 101,
+        "ReceivingPlantDesc": "Plant A",
+        "DeliveringPlantID": 202,
+        "DeliveringPlantDesc": "Plant Y",
+        "StatusCode": "CR",
+        "StatusDesc": "Created"
+    },
+    {
+        "OrderID": 1006,
+        "CreationDate": "/Date(1730700000000)/",
+        "ReceivingPlantID": 102,
+        "ReceivingPlantDesc": "Plant B",
+        "DeliveringPlantID": 203,
+        "DeliveringPlantDesc": "Plant Z",
+        "StatusCode": "DL",
+        "StatusDesc": "Delivered"
+    },
+    {
+        "OrderID": 1007,
+        "CreationDate": "/Date(1730800000000)/",
+        "ReceivingPlantID": 103,
+        "ReceivingPlantDesc": "Plant C",
+        "DeliveringPlantID": 204,
+        "DeliveringPlantDesc": "Plant W",
+        "StatusCode": "RL",
+        "StatusDesc": "Released"
+    },
+    {
+        "OrderID": 1008,
+        "CreationDate": "/Date(1730900000000)/",
+        "ReceivingPlantID": 104,
+        "ReceivingPlantDesc": "Plant D",
+        "DeliveringPlantID": 201,
+        "DeliveringPlantDesc": "Plant X",
+        "StatusCode": "CR",
+        "StatusDesc": "Created"
+    },
+    {
+        "OrderID": 1009,
+        "CreationDate": "/Date(1731000000000)/",
+        "ReceivingPlantID": 101,
+        "ReceivingPlantDesc": "Plant A",
+        "DeliveringPlantID": 203,
+        "DeliveringPlantDesc": "Plant Z",
+        "StatusCode": "PC",
+        "StatusDesc": "Partially Completed"
+    },
+    {
+        "OrderID": 1010,
+        "CreationDate": "/Date(1731100000000)/",
+        "ReceivingPlantID": 102,
+        "ReceivingPlantDesc": "Plant B",
+        "DeliveringPlantID": 204,
+        "DeliveringPlantDesc": "Plant W",
+        "StatusCode": "DL",
+        "StatusDesc": "Delivered"
+    },
 
-  {
-    "OrderID": 1005,
-    "CreationDate": "/Date(1731600000000)/",
-    "ReceivingPlant": 2,
-    "ReceivingPlantDesc": "Batangas Plant",
-    "DeliveringPlant": 1,
-    "DeliveringPlantDesc": "Manila Main Plant",
-    "StatusCode": "CR",
-    "StatusDesc": "Created"
-  },
-  {
-    "OrderID": 1006,
-    "CreationDate": "/Date(1731700000000)/",
-    "ReceivingPlant": 3,
-    "ReceivingPlantDesc": "Baguio Plant",
-    "DeliveringPlant": 2,
-    "DeliveringPlantDesc": "Batangas Plant",
-    "StatusCode": "RL",
-    "StatusDesc": "Released"
-  },
-  {
-    "OrderID": 1007,
-    "CreationDate": "/Date(1731750000000)/",
-    "ReceivingPlant": 1,
-    "ReceivingPlantDesc": "Manila Main Plant",
-    "DeliveringPlant": 3,
-    "DeliveringPlantDesc": "Baguio Plant",
-    "StatusCode": "PC",
-    "StatusDesc": "Partially Confirmed"
-  },
-  {
-    "OrderID": 1008,
-    "CreationDate": "/Date(1731800000000)/",
-    "ReceivingPlant": 2,
-    "ReceivingPlantDesc": "Batangas Plant",
-    "DeliveringPlant": 2,
-    "DeliveringPlantDesc": "Batangas Plant",
-    "StatusCode": "DL",
-    "StatusDesc": "Delivered"
-  },
-  {
-    "OrderID": 1009,
-    "CreationDate": "/Date(1732000000000)/",
-    "ReceivingPlant": 1,
-    "ReceivingPlantDesc": "Manila Main Plant",
-    "DeliveringPlant": 1,
-    "DeliveringPlantDesc": "Manila Main Plant",
-    "StatusCode": "CR",
-    "StatusDesc": "Created"
-  },
-  {
-    "OrderID": 1010,
-    "CreationDate": "/Date(1732050000000)/",
-    "ReceivingPlant": 2,
-    "ReceivingPlantDesc": "Batangas Plant",
-    "DeliveringPlant": 3,
-    "DeliveringPlantDesc": "Baguio Plant",
-    "StatusCode": "RL",
-    "StatusDesc": "Released"
-  },
-  {
-    "OrderID": 1011,
-    "CreationDate": "/Date(1732100000000)/",
-    "ReceivingPlant": 3,
-    "ReceivingPlantDesc": "Baguio Plant",
-    "DeliveringPlant": 1,
-    "DeliveringPlantDesc": "Manila Main Plant",
-    "StatusCode": "PC",
-    "StatusDesc": "Partially Confirmed"
-  },
-  {
-    "OrderID": 1012,
-    "CreationDate": "/Date(1732150000000)/",
-    "ReceivingPlant": 1,
-    "ReceivingPlantDesc": "Manila Main Plant",
-    "DeliveringPlant": 2,
-    "DeliveringPlantDesc": "Batangas Plant",
-    "StatusCode": "DL",
-    "StatusDesc": "Delivered"
-  },
-  {
-    "OrderID": 1013,
-    "CreationDate": "/Date(1732200000000)/",
-    "ReceivingPlant": 3,
-    "ReceivingPlantDesc": "Baguio Plant",
-    "DeliveringPlant": 3,
-    "DeliveringPlantDesc": "Baguio Plant",
-    "StatusCode": "CR",
-    "StatusDesc": "Created"
-  },
-  {
-    "OrderID": 1014,
-    "CreationDate": "/Date(1732300000000)/",
-    "ReceivingPlant": 2,
-    "ReceivingPlantDesc": "Batangas Plant",
-    "DeliveringPlant": 1,
-    "DeliveringPlantDesc": "Manila Main Plant",
-    "StatusCode": "RL",
-    "StatusDesc": "Released"
-  },
-  {
-    "OrderID": 1015,
-    "CreationDate": "/Date(1732400000000)/",
-    "ReceivingPlant": 1,
-    "ReceivingPlantDesc": "Manila Main Plant",
-    "DeliveringPlant": 3,
-    "DeliveringPlantDesc": "Baguio Plant",
-    "StatusCode": "PC",
-    "StatusDesc": "Partially Confirmed"
-  },
-  {
-    "OrderID": 1016,
-    "CreationDate": "/Date(1732500000000)/",
-    "ReceivingPlant": 3,
-    "ReceivingPlantDesc": "Baguio Plant",
-    "DeliveringPlant": 2,
-    "DeliveringPlantDesc": "Batangas Plant",
-    "StatusCode": "DL",
-    "StatusDesc": "Delivered"
-  }
+    {
+        "OrderID": 1011,
+        "CreationDate": "/Date(1731200000000)/",
+        "ReceivingPlantID": 103,
+        "ReceivingPlantDesc": "Plant C",
+        "DeliveringPlantID": 201,
+        "DeliveringPlantDesc": "Plant X",
+        "StatusCode": "CR",
+        "StatusDesc": "Created"
+    },
+    {
+        "OrderID": 1012,
+        "CreationDate": "/Date(1731300000000)/",
+        "ReceivingPlantID": 104,
+        "ReceivingPlantDesc": "Plant D",
+        "DeliveringPlantID": 202,
+        "DeliveringPlantDesc": "Plant Y",
+        "StatusCode": "RL",
+        "StatusDesc": "Released"
+    },
+    {
+        "OrderID": 1013,
+        "CreationDate": "/Date(1731400000000)/",
+        "ReceivingPlantID": 101,
+        "ReceivingPlantDesc": "Plant A",
+        "DeliveringPlantID": 204,
+        "DeliveringPlantDesc": "Plant W",
+        "StatusCode": "DL",
+        "StatusDesc": "Delivered"
+    },
+    {
+        "OrderID": 1014,
+        "CreationDate": "/Date(1731500000000)/",
+        "ReceivingPlantID": 102,
+        "ReceivingPlantDesc": "Plant B",
+        "DeliveringPlantID": 203,
+        "DeliveringPlantDesc": "Plant Z",
+        "StatusCode": "PC",
+        "StatusDesc": "Partially Completed"
+    },
+    {
+        "OrderID": 1015,
+        "CreationDate": "/Date(1731600000000)/",
+        "ReceivingPlantID": 103,
+        "ReceivingPlantDesc": "Plant C",
+        "DeliveringPlantID": 202,
+        "DeliveringPlantDesc": "Plant Y",
+        "StatusCode": "CR",
+        "StatusDesc": "Created"
+    },
+    {
+        "OrderID": 1016,
+        "CreationDate": "/Date(1731700000000)/",
+        "ReceivingPlantID": 104,
+        "ReceivingPlantDesc": "Plant D",
+        "DeliveringPlantID": 201,
+        "DeliveringPlantDesc": "Plant X",
+        "StatusCode": "RL",
+        "StatusDesc": "Released"
+    },
+    {
+        "OrderID": 1017,
+        "CreationDate": "/Date(1731800000000)/",
+        "ReceivingPlantID": 101,
+        "ReceivingPlantDesc": "Plant A",
+        "DeliveringPlantID": 203,
+        "DeliveringPlantDesc": "Plant Z",
+        "StatusCode": "PC",
+        "StatusDesc": "Partially Completed"
+    },
+    {
+        "OrderID": 1018,
+        "CreationDate": "/Date(1731900000000)/",
+        "ReceivingPlantID": 102,
+        "ReceivingPlantDesc": "Plant B",
+        "DeliveringPlantID": 204,
+        "DeliveringPlantDesc": "Plant W",
+        "StatusCode": "DL",
+        "StatusDesc": "Delivered"
+    },
+    {
+        "OrderID": 1019,
+        "CreationDate": "/Date(1732000000000)/",
+        "ReceivingPlantID": 103,
+        "ReceivingPlantDesc": "Plant C",
+        "DeliveringPlantID": 202,
+        "DeliveringPlantDesc": "Plant Y",
+        "StatusCode": "RL",
+        "StatusDesc": "Released"
+    },
+    {
+        "OrderID": 1020,
+        "CreationDate": "/Date(1732100000000)/",
+        "ReceivingPlantID": 104,
+        "ReceivingPlantDesc": "Plant D",
+        "DeliveringPlantID": 201,
+        "DeliveringPlantDesc": "Plant X",
+        "StatusCode": "CR",
+        "StatusDesc": "Created"
+    }
 ]

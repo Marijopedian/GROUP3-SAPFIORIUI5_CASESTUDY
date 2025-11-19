@@ -2,13 +2,13 @@
 <edmx:Edmx Version="1.0"
 xmlns:edmx="http://schemas.microsoft.com/ado/2007/06/edmx"
 xmlns:sap="http://www.sap.com/Protocols/SAPData">
-
+ 
 <edmx:DataServices
 xmlns:m="http://schemas.microsoft.com/ado/2007/08/dataservices/metadata"
 m:DataServiceVersion="2.0">
-
+ 
 <Schema xmlns="http://schemas.microsoft.com/ado/2008/09/edm" Namespace="OrderModel">
-    
+   
     <!-- Entity Order -->
     <EntityType Name="Order">
         <Key>
@@ -16,34 +16,38 @@ m:DataServiceVersion="2.0">
         </Key>
         <Property Name="OrderID" Type="Edm.Int32" Nullable="false" sap:label="Order Number"/>
         <Property Name="CreationDate" Type="Edm.DateTime" Nullable="false" sap:label="Creation Date"/>
-        <Property Name="ReceivingPlant" Type="Edm.Int32" Nullable="false" sap:label="Receiving Plant ID"/>
-        <Property Name="DeliveringPlant" Type="Edm.Int32" Nullable="false" sap:label="Delivering Plant ID"/>
+        <Property Name="ReceivingPlantID" Type="Edm.Int32" Nullable="false" sap:label="Receiving Plant ID"/>
+        <Property Name="ReceivingPlantDesc" Type="Edm.String" Nullable="false" sap:label="Receiving Plant"/>
+        <Property Name="DeliveringPlantID" Type="Edm.Int32" Nullable="false" sap:label="Delivering Plant ID"/>
+        <Property Name="DeliveringPlantDesc" Type="Edm.String" Nullable="false" sap:label="Delivering Plant"/>
         <Property Name="StatusCode" Type="Edm.String" Nullable="false" sap:label="Status Code"/>
-        
+        <Property Name="StatusDesc" Type="Edm.String" Nullable="false" sap:label="Status"/>
+       
         <!-- Navigation Properties -->
         <NavigationProperty Name="ToProducts" Relationship="OrderModel.Order_Product_Assoc" FromRole="FromOrder" ToRole="ToProducts"/>
         <NavigationProperty Name="ToReceivingPlant" Relationship="OrderModel.ReceivingPlant_Order_Assoc" FromRole="FromOrder" ToRole="ToReceivingPlant"/>
         <NavigationProperty Name="ToDeliveringPlant" Relationship="OrderModel.DeliveringPlant_Order_Assoc" FromRole="FromOrder" ToRole="ToDeliveringPlant"/>
         <NavigationProperty Name="ToStatus" Relationship="OrderModel.Status_Order_Assoc" FromRole="FromOrder" ToRole="ToStatus"/>
     </EntityType>
-    
+   
     <!-- Entity Product -->
     <EntityType Name="Product">
         <Key>
             <PropertyRef Name="ProductID"/>
         </Key>
         <Property Name="ProductID" Type="Edm.Int32" Nullable="false" sap:label="Product ID"/>
-        <Property Name="OrderID" Type="Edm.Int32" Nullable="false" sap:label="Order ID"/>
-        <Property Name="DeliveringPlant" Type="Edm.Int32" Nullable="false" sap:label="Delivering Plant ID"/>
+        <Property Name="OrderID" Type="Edm.Int32" Nullable="false" sap:label="Order Number"/>
+        <Property Name="DeliveringPlantID" Type="Edm.Int32" Nullable="false" sap:label="Delivering Plant ID"/>
+        <Property Name="DeliveringPlantDesc" Type="Edm.String" Nullable="false" sap:label="Delivering Plant"/>
         <Property Name="ProductDescription" Type="Edm.String" Nullable="false" sap:label="Product Description"/>
         <Property Name="Quantity" Type="Edm.Int32" Nullable="false" sap:label="Quantity"/>
         <Property Name="PricePerQuantity" Type="Edm.Decimal" Nullable="false" sap:label="Price per Quantity"/>
         <Property Name="TotalPrice" Type="Edm.Decimal" Nullable="false" sap:label="Total Price"/>
-        
+       
         <!-- Navigation to DeliveringPlant -->
         <NavigationProperty Name="ToDeliveringPlant" Relationship="OrderModel.DeliveringPlant_Product_Assoc" FromRole="FromProduct" ToRole="ToDeliveringPlant"/>
     </EntityType>
-    
+   
     <!-- Entity ReceivingPlant -->
     <EntityType Name="ReceivingPlant">
         <Key>
@@ -51,11 +55,11 @@ m:DataServiceVersion="2.0">
         </Key>
         <Property Name="PlantID" Type="Edm.Int32" Nullable="false" sap:label="Receiving Plant ID"/>
         <Property Name="PlantDescription" Type="Edm.String" Nullable="false" sap:label="Receiving Plant Description"/>
-        
+       
         <!-- Navigation to Orders -->
         <NavigationProperty Name="ToOrders" Relationship="OrderModel.ReceivingPlant_Order_Assoc" FromRole="ToReceivingPlant" ToRole="FromOrder"/>
     </EntityType>
-    
+   
     <!-- Entity DeliveringPlant -->
     <EntityType Name="DeliveringPlant">
         <Key>
@@ -63,12 +67,12 @@ m:DataServiceVersion="2.0">
         </Key>
         <Property Name="PlantID" Type="Edm.Int32" Nullable="false" sap:label="Delivering Plant ID"/>
         <Property Name="PlantDescription" Type="Edm.String" Nullable="false" sap:label="Delivering Plant Description"/>
-        
+       
         <!-- Navigation to Orders and Products -->
         <NavigationProperty Name="ToOrders" Relationship="OrderModel.DeliveringPlant_Order_Assoc" FromRole="ToDeliveringPlant" ToRole="FromOrder"/>
         <NavigationProperty Name="ToProducts" Relationship="OrderModel.DeliveringPlant_Product_Assoc" FromRole="ToDeliveringPlant" ToRole="FromProduct"/>
     </EntityType>
-    
+   
     <!-- Entity Status -->
     <EntityType Name="Status">
         <Key>
@@ -76,13 +80,13 @@ m:DataServiceVersion="2.0">
         </Key>
         <Property Name="StatusCode" Type="Edm.String" Nullable="false" sap:label="Status Code"/>
         <Property Name="StatusDescription" Type="Edm.String" Nullable="false" sap:label="Status Description"/>
-        
+       
         <!-- Navigation to Orders -->
         <NavigationProperty Name="ToOrders" Relationship="OrderModel.Status_Order_Assoc" FromRole="ToStatus" ToRole="FromOrder"/>
     </EntityType>
-    
+   
     <!-- Associations -->
-    
+   
     <!-- One Order to Many Products -->
     <Association Name="Order_Product_Assoc">
         <End Type="OrderModel.Order" Role="FromOrder" Multiplicity="1"/>
@@ -96,7 +100,7 @@ m:DataServiceVersion="2.0">
             </Dependent>
         </ReferentialConstraint>
     </Association>
-    
+   
     <!-- One DeliveringPlant to Many Products -->
     <Association Name="DeliveringPlant_Product_Assoc">
         <End Type="OrderModel.DeliveringPlant" Role="ToDeliveringPlant" Multiplicity="1"/>
@@ -110,7 +114,7 @@ m:DataServiceVersion="2.0">
             </Dependent>
         </ReferentialConstraint>
     </Association>
-    
+   
     <!-- One ReceivingPlant to Many Orders -->
     <Association Name="ReceivingPlant_Order_Assoc">
         <End Type="OrderModel.ReceivingPlant" Role="ToReceivingPlant" Multiplicity="1"/>
@@ -124,7 +128,7 @@ m:DataServiceVersion="2.0">
             </Dependent>
         </ReferentialConstraint>
     </Association>
-    
+   
     <!-- One DeliveringPlant to Many Orders -->
     <Association Name="DeliveringPlant_Order_Assoc">
         <End Type="OrderModel.DeliveringPlant" Role="ToDeliveringPlant" Multiplicity="1"/>
@@ -138,7 +142,7 @@ m:DataServiceVersion="2.0">
             </Dependent>
         </ReferentialConstraint>
     </Association>
-    
+   
     <!-- One Status to Many Orders -->
     <Association Name="Status_Order_Assoc">
         <End Type="OrderModel.Status" Role="ToStatus" Multiplicity="1"/>
@@ -152,7 +156,7 @@ m:DataServiceVersion="2.0">
             </Dependent>
         </ReferentialConstraint>
     </Association>
-    
+   
     <!-- EntityContainer -->
     <EntityContainer Name="OrderService" m:IsDefaultEntityContainer="true">
         <EntitySet Name="Orders" EntityType="OrderModel.Order"/>
@@ -160,34 +164,34 @@ m:DataServiceVersion="2.0">
         <EntitySet Name="ReceivingPlants" EntityType="OrderModel.ReceivingPlant"/>
         <EntitySet Name="DeliveringPlants" EntityType="OrderModel.DeliveringPlant"/>
         <EntitySet Name="Statuses" EntityType="OrderModel.Status"/>
-        
+       
         <!-- Association Sets -->
         <AssociationSet Name="Order_Product_AssocSet" Association="OrderModel.Order_Product_Assoc">
             <End Role="FromOrder" EntitySet="Orders"/>
             <End Role="ToProducts" EntitySet="Products"/>
         </AssociationSet>
-        
+       
         <AssociationSet Name="DeliveringPlant_Product_AssocSet" Association="OrderModel.DeliveringPlant_Product_Assoc">
             <End Role="ToDeliveringPlant" EntitySet="DeliveringPlants"/>
             <End Role="FromProduct" EntitySet="Products"/>
         </AssociationSet>
-        
+       
         <AssociationSet Name="ReceivingPlant_Order_AssocSet" Association="OrderModel.ReceivingPlant_Order_Assoc">
             <End Role="ToReceivingPlant" EntitySet="ReceivingPlants"/>
             <End Role="FromOrder" EntitySet="Orders"/>
         </AssociationSet>
-        
+       
         <AssociationSet Name="DeliveringPlant_Order_AssocSet" Association="OrderModel.DeliveringPlant_Order_Assoc">
             <End Role="ToDeliveringPlant" EntitySet="DeliveringPlants"/>
             <End Role="FromOrder" EntitySet="Orders"/>
         </AssociationSet>
-        
+       
         <AssociationSet Name="Status_Order_AssocSet" Association="OrderModel.Status_Order_Assoc">
             <End Role="ToStatus" EntitySet="Statuses"/>
             <End Role="FromOrder" EntitySet="Orders"/>
         </AssociationSet>
     </EntityContainer>
-    
+   
 </Schema>
 </edmx:DataServices>
 </edmx:Edmx>
