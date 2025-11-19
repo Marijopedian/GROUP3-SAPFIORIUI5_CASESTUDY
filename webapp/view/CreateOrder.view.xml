@@ -1,0 +1,73 @@
+<mvc:View
+    controllerName="group3casestudy.controller.CreateOrder"
+    xmlns:mvc="sap.ui.core.mvc"
+    xmlns:f="sap.ui.layout.form"
+    xmlns="sap.m"
+    xmlns:core="sap.ui.core">
+
+    <Page id="createOrderPage" title="Create Order" showNavButton="true" navButtonPress="onNavBack">
+        <content>
+            <VBox id="createOrderVBox" class="sapUiSmallMargin">
+                <f:SimpleForm id="orderDetailForm" editable="true" layout="ResponsiveGridLayout" title="Order Detail"
+                    labelSpanXL="3" labelSpanL="3" labelSpanM="3" labelSpanS="12"
+                    adjustLabelSpan="false" emptySpanXL="4" emptySpanL="4" emptySpanM="4" emptySpanS="0"
+                    columnsXL="1" columnsL="1" columnsM="1">
+
+                    <!-- Receiving Plant -->
+                    <Label id="_IDGenLabel1" text="Receiving Plant" labelFor="receivingPlantInput"/>
+                    <Input id="receivingPlantInput"
+                        value="{/NewOrder/ReceivingPlantDesc}"
+                        showValueHelp="true"
+                        valueHelpRequest="onReceivingPlantHelp"
+                        editable="false"/>
+
+                    <!-- Delivering Plant -->
+                    <Label id="_IDGenLabel2" text="Delivering Plant" labelFor="deliveringPlantInput"/>
+                    <Input id="deliveringPlantInput"
+                        value="{/NewOrder/DeliveringPlantDesc}"
+                        showValueHelp="true"
+                        valueHelpRequest="onDeliveringPlantHelp"
+                        editable="false"/>
+                </f:SimpleForm>
+            </VBox>
+
+            <VBox id="createProductVBox" class="sapUiSmallMargin">
+                <!-- Toolbar for Add/Delete Buttons -->
+                <Toolbar id="_IDGenToolbar">
+                    <Title id="_IDGenTitle" text="Products"/>
+                    <ToolbarSpacer id="_IDGenToolbarSpacer"/>
+                    <Button id="_IDGenButton" icon="sap-icon://add" press="onAddProduct"/>
+                    <Button id="_IDGenButton1" icon="sap-icon://delete" press="onDeleteProduct"/>
+                </Toolbar>
+
+                <!-- Products Table -->
+                <Table id="productsTable" mode="MultiSelect" items="{/NewOrder/Products}">
+                    <columns>
+                        <Column id="_IDGenColumn"><Text id="_IDGenText" text="Product Name"/></Column>
+                        <Column id="_IDGenColumn1"><Text id="_IDGenText1" text="Quantity"/></Column>
+                        <Column id="_IDGenColumn2"><Text id="_IDGenText2" text="Price per Quantity"/></Column>
+                        <Column id="_IDGenColumn3"><Text id="_IDGenText3" text="Total Price"/></Column>
+                    </columns>
+                    <items>
+                        <ColumnListItem id="_IDGenColumnListItem">
+                            <cells>
+                                <Text id="_IDGenText4" text="{ProductDescription}"/>
+                                <Text id="_IDGenText5" text="{Quantity}"/>
+                                <Text id="_IDGenText6" text="{PricePerQuantity}"/>
+                                <Text id="_IDGenText7" text="{TotalPrice}"/>
+                            </cells>
+                        </ColumnListItem>
+                    </items>
+                </Table>
+            </VBox>
+        </content>
+
+        <footer>
+            <Toolbar id="_IDGenToolbar1">
+                <ToolbarSpacer id="_IDGenToolbarSpacer1"/>
+                <Button id="_IDGenButton2" text="Save" type="Emphasized" press="onSave"/>
+                <Button id="_IDGenButton3" text="Cancel" press="onCancel"/>
+            </Toolbar>
+        </footer>
+    </Page>
+</mvc:View>
