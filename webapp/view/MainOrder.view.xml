@@ -47,7 +47,7 @@
                         </columns>
 
                         <items>
-                            <ColumnListItem id="_IDGenColumnListItem">
+                            <ColumnListItem id="_IDGenColumnListItem" type="Navigation" press="onRowPress">
                                 <cells>
                                     <Text id="_IDGenText5" text="{OrderID}"/>
                                     <Text id="_IDGenText6" text="{CreationDate}"/>
