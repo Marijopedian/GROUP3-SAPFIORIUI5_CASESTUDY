@@ -380,7 +380,6 @@ sap.ui.define([
 
       
       var aOrderDetails = sap.ui.getCore().tableLength;
-      console.log(aOrderDetails)
 
       var sOrderID = aOrderDetails + 1;
       const oNewOrderData = {
@@ -407,6 +406,32 @@ sap.ui.define([
         }
       });
 
+      // Save Product
+      let productsTable = this.byId("productsTable");
+      let aContexts = productsTable.getBinding("items").getContexts();
+      let aProducts = aContexts.map(function (oCtx) {
+          return oCtx.getObject();
+      });
+      aProducts.forEach(product => {
+        let oNewProductData = {
+          ProductID: Math.random(),
+          OrderID: parseFloat(sOrderID),
+          DeliveringPlantID: parseFloat(iDeliveringPlantID),
+          DeliveringPlantDesc: this.getView().getModel("vm").getProperty("/NewOrder/DeliveringPlant"),
+          ProductDescription: product.ProductDescription,
+          Quantity: product.Quantity,
+          PricePerQuantity: product.PricePerQuantity,
+          TotalPrice: product.TotalPrice
+        };
+        oModel.create("/Products", oNewProductData, {
+          success: function (oData, oResponse) {
+            
+          },
+          error: function (oError) {
+            console.error("Create Product failed:", oError);
+          }
+        });
+      });
     },
 
     onCancel: function () {
