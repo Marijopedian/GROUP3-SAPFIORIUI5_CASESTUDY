@@ -67,6 +67,21 @@
         "dataSource": "mainService",
         "preload": true,
         "settings": {}
+      },
+        "deliveryPlantsModel":{
+        "type": "sap.ui.model.json.JSONModel",
+        "uri": "./model/DeliveringPlants.json",
+        "preload": true        
+      },
+        "receivingPlantsModel":{
+        "type": "sap.ui.model.json.JSONModel",
+        "uri": "./model/ReceivingPlants.json",
+        "preload": true        
+      },
+        "productsModel":{
+        "type": "sap.ui.model.json.JSONModel",
+        "uri": "./model/Products.json",
+        "preload": true        
       }
     },
     "resources": {
@@ -100,7 +115,12 @@
           "name": "RouteDetailOrder",
           "pattern": "DetailOrder/{OrderID}",
           "target": ["TargetDetailOrder"]
-        }
+        },
+            {
+        "name": "CreateOrder",
+        "pattern": "CreateOrder",
+        "target": "CreateOrder"
+     }
       ],
       "targets": {
         "TargetMainOrder": {
@@ -110,8 +130,13 @@
         "TargetDetailOrder": {
           "id": "DetailOrder",
           "name": "DetailOrder"
-        }
+        },
+        "CreateOrder": {
+        "viewName": "CreateOrder",
+        "viewID": "CreateOrder"
+    }
       }
+      
     },
     "rootView": {
       "viewName": "group3casestudy.view.App",
