@@ -178,7 +178,17 @@ sap.ui.define([
             let sOrderID = oContext.getProperty("OrderID");
 
             oRouter.navTo("RouteDetailOrder", { OrderID: sOrderID });
-        }
+        },
+            onCreate: function () {
+            sap.ui.getCore().tableLength = "";
+
+            var index = this.getView().byId("orderTable").getItems().length - 1;
+            var sOrderId = this.getView().byId("orderTable").getItems()[index].getBindingContext().getProperty("OrderID");
+            sap.ui.getCore().tableLength = sOrderId;
+            var oRouter = sap.ui.core.UIComponent.getRouterFor(this);
+            oRouter.navTo("CreateOrder", null);
+       
+        },
 
     });
 });

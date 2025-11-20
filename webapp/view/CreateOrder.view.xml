@@ -5,7 +5,7 @@
     xmlns="sap.m"
     xmlns:core="sap.ui.core">
 
-    <Page id="createOrderPage" title="Create Order" showNavButton="true" navButtonPress="onNavBack">
+    <Page id="createOrderPage" title="Create Order" showNavButton="true" navButtonPress=".onNavBack">
         <content>
             <VBox id="createOrderVBox" class="sapUiSmallMargin">
                 <f:SimpleForm id="orderDetailForm" editable="true" layout="ResponsiveGridLayout" title="Order Detail"
@@ -13,21 +13,26 @@
                     adjustLabelSpan="false" emptySpanXL="4" emptySpanL="4" emptySpanM="4" emptySpanS="0"
                     columnsXL="1" columnsL="1" columnsM="1">
 
-                    <!-- Receiving Plant -->
-                    <Label id="_IDGenLabel1" text="Receiving Plant" labelFor="receivingPlantInput"/>
-                    <Input id="receivingPlantInput"
-                        value="{/NewOrder/ReceivingPlantDesc}"
-                        showValueHelp="true"
-                        valueHelpRequest="onReceivingPlantHelp"
-                        editable="false"/>
-
-                    <!-- Delivering Plant -->
-                    <Label id="_IDGenLabel2" text="Delivering Plant" labelFor="deliveringPlantInput"/>
-                    <Input id="deliveringPlantInput"
-                        value="{/NewOrder/DeliveringPlantDesc}"
-                        showValueHelp="true"
-                        valueHelpRequest="onDeliveringPlantHelp"
-                        editable="false"/>
+            <Label id="receivingPlantLabel" text="Receiving Plant" labelFor="receivingPlantInput"/>
+            <Input
+                id="receivingPlantInput"
+                value="{vm>/NewOrder/ReceivingPlant}"
+                valueLiveUpdate="true"
+                showValueHelp="true"
+                valueHelpRequest="onReceivingPlantHelp"
+                editable="true"
+                required="true" />
+ 
+            <!-- Delivering Plant (bind to code) -->
+            <Label id="deliveringPlantLabel" text="Delivering Plant" labelFor="deliveringPlantInput"/>
+            <Input
+                id="deliveringPlantInput"
+                value="{vm>/NewOrder/DeliveringPlant}"
+                valueLiveUpdate="true"
+                showValueHelp="true"
+                valueHelpRequest="onDeliveringPlantHelp"
+                editable="true"
+                required="true" />
                 </f:SimpleForm>
             </VBox>
 
@@ -35,26 +40,26 @@
                 <!-- Toolbar for Add/Delete Buttons -->
                 <Toolbar id="_IDGenToolbar">
                     <Title id="_IDGenTitle" text="Products"/>
-                    <ToolbarSpacer id="_IDGenToolbarSpacer"/>
-                    <Button id="_IDGenButton" icon="sap-icon://add" press="onAddProduct"/>
-                    <Button id="_IDGenButton1" icon="sap-icon://delete" press="onDeleteProduct"/>
+                    <ToolbarSpacer id="_IDGenToolbarSpacers"/>
+                    <Button id="_IDGenBtn" icon="sap-icon://add" press="onAddProduct"/>
+                    <Button id="_IDGenBtn1" icon="sap-icon://delete" press="onDeleteProduct"/>
                 </Toolbar>
 
                 <!-- Products Table -->
-                <Table id="productsTable" mode="MultiSelect" items="{/NewOrder/Products}">
+                <Table id="productsTable" mode="MultiSelect" items="{vm>/NewOrder/Products}">
                     <columns>
-                        <Column id="_IDGenColumn"><Text id="_IDGenText" text="Product Name"/></Column>
-                        <Column id="_IDGenColumn1"><Text id="_IDGenText1" text="Quantity"/></Column>
-                        <Column id="_IDGenColumn2"><Text id="_IDGenText2" text="Price per Quantity"/></Column>
-                        <Column id="_IDGenColumn3"><Text id="_IDGenText3" text="Total Price"/></Column>
+                        <Column id="_IDGenClmn"><Text id="_IDGenTxt" text="Product Name"/></Column>
+                        <Column id="_IDGenClmn1"><Text id="_IDGenTxt1" text="Quantity"/></Column>
+                        <Column id="_IDGenClmn2"><Text id="_IDGenTxt2" text="Price per Quantity"/></Column>
+                        <Column id="_IDGenClmn3"><Text id="_IDGenTxt3" text="Total Price"/></Column>
                     </columns>
                     <items>
-                        <ColumnListItem id="_IDGenColumnListItem">
+                        <ColumnListItem id="_IDGenColumnListItm">
                             <cells>
-                                <Text id="_IDGenText4" text="{ProductDescription}"/>
-                                <Text id="_IDGenText5" text="{Quantity}"/>
-                                <Text id="_IDGenText6" text="{PricePerQuantity}"/>
-                                <Text id="_IDGenText7" text="{TotalPrice}"/>
+                                <Text id="_IDGenTxt4" text="{vm>ProductDescription}"/>
+                                <Text id="_IDGenTxt5" text="{vm>Quantity}"/>
+                                <Text id="_IDGenTxt6" text="{vm>PricePerQuantity}"/>
+                                <Text id="_IDGenTxt7" text="{vm>TotalPrice}"/>
                             </cells>
                         </ColumnListItem>
                     </items>
@@ -63,7 +68,7 @@
         </content>
 
         <footer>
-            <Toolbar id="_IDGenToolbar1">
+            <Toolbar id="_IDGenToolbr1">
                 <ToolbarSpacer id="_IDGenToolbarSpacer1"/>
                 <Button id="_IDGenButton2" text="Save" type="Emphasized" press="onSave"/>
                 <Button id="_IDGenButton3" text="Cancel" press="onCancel"/>
